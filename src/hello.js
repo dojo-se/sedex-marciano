@@ -7,17 +7,7 @@ function calculaHipotenusa(cateto1, cateto2) {
 }
 
 function verificaCaixa(largura, altura, profundidade, raio) {
-	var maior, diagonal1, diagonal2, diagonal3;
-
-	diagonal1 = calculaHipotenusa(profundidade, largura);
-
-	diagonal2 = calculaHipotenusa(profundidade, altura);
-
-	diagonal3 = calculaHipotenusa(diagonal1, altura);
-
-	maior = Math.max(diagonal1, diagonal2, diagonal3);
-
-	return ( maior <= raio*2 ) ?	'S' : 'N';
-
+	return (calculaHipotenusa(calculaHipotenusa(profundidade, largura), altura) <= raio*2 ) ?	'S' : 'N';
 }
+
 module.exports.verificaCaixa = verificaCaixa;
